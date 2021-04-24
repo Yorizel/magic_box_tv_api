@@ -1,13 +1,14 @@
 import jwt from 'jsonwebtoken';
 import { ErrorHandler } from '../utils/errorHandler';
 import dotenv from 'dotenv';
-import { Req } from '../controller/AbstractController';
+import { genericRequest } from '../controller/AbstractController';
 import { Response } from 'express';
+
 dotenv.config();
 class Token {
-  async create(req: Req, res: Response) {
+  async create(req: genericRequest, res: Response) {
     try {
-      const { id, firstName, lastName, role, avatar, profile } = req.user;
+      const { id, firstName, lastName, role, userAvatar, profile } = req.user;
 
       const token = await jwt.sign(
         { id, firstName, lastName },
@@ -17,10 +18,10 @@ class Token {
       res.status(200).json({
         token,
         id,
-        firstName: firstName,
-        lastName: lastName,
+        firstName,
+        lastName,
         role,
-        avatar,
+        userAvatar,
         profile
       });
     } catch (e) {

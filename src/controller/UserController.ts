@@ -1,9 +1,9 @@
-import { AbstractController, Req } from './AbstractController';
+import { AbstractController, genericRequest } from './AbstractController';
 import e from 'express';
 import { ErrorHandler } from '../utils/errorHandler';
 
 class UserController extends AbstractController {
-  async create(req: Req, res: e.Response, next: e.NextFunction) {
+  async create(req: genericRequest, res: e.Response, next: e.NextFunction) {
     const { firstName, lastName, email, password } = req.body;
     try {
       const user = await this.prisma.users.create({
@@ -25,7 +25,7 @@ class UserController extends AbstractController {
     }
   }
 
-  async find(req: Req, res: e.Response, next: e.NextFunction) {
+  async find(req: genericRequest, res: e.Response, next: e.NextFunction) {
     const { email, password } = req.body;
     try {
       const user = await this.prisma.users.findFirst({
@@ -34,8 +34,8 @@ class UserController extends AbstractController {
           password
         },
         include: {
-          userAvatar: true,
-          profile: true
+          profile: true,
+          userAvatar: true
         }
       });
       if (user != null) {
@@ -48,7 +48,7 @@ class UserController extends AbstractController {
     }
   }
 
-  async update(req: Req, res: e.Response, next: e.NextFunction) {
+  async update(req: genericRequest, res: e.Response, next: e.NextFunction) {
     const { files } = req;
     const { email, password, role } = req.body;
     const { id } = req.params;

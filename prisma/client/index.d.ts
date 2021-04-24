@@ -17,7 +17,7 @@ type UnwrapTuple<Tuple extends readonly unknown[]> = {
  */
 
 export type posts = {
-  id: number
+  id: string
   title: string
   description: string | null
   createdAt: Date
@@ -28,9 +28,9 @@ export type posts = {
  */
 
 export type profile = {
-  id: number
+  id: string
   description: string
-  userId: number
+  userId: string
 }
 
 /**
@@ -38,13 +38,13 @@ export type profile = {
  */
 
 export type users = {
-  id: number
+  id: string
   email: string
   firstName: string
   lastName: string
   password: string
   role: role
-  avatarId: number | null
+  avatarId: string | null
 }
 
 /**
@@ -52,7 +52,7 @@ export type users = {
  */
 
 export type userAvatar = {
-  id: number
+  id: string
   key: string
   url: string
 }
@@ -746,29 +746,19 @@ export namespace Prisma {
 
   export type AggregatePosts = {
     count: PostsCountAggregateOutputType | null
-    avg: PostsAvgAggregateOutputType | null
-    sum: PostsSumAggregateOutputType | null
     min: PostsMinAggregateOutputType | null
     max: PostsMaxAggregateOutputType | null
   }
 
-  export type PostsAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type PostsSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type PostsMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
     createdAt: Date | null
   }
 
   export type PostsMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     title: string | null
     description: string | null
     createdAt: Date | null
@@ -782,14 +772,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type PostsAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type PostsSumAggregateInputType = {
-    id?: true
-  }
 
   export type PostsMinAggregateInputType = {
     id?: true
@@ -851,18 +833,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    avg?: PostsAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    sum?: PostsSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     min?: PostsMinAggregateInputType
@@ -893,21 +863,17 @@ export namespace Prisma {
     take?: number
     skip?: number
     count?: PostsCountAggregateInputType | true
-    avg?: PostsAvgAggregateInputType
-    sum?: PostsSumAggregateInputType
     min?: PostsMinAggregateInputType
     max?: PostsMaxAggregateInputType
   }
 
 
   export type PostsGroupByOutputType = {
-    id: number
+    id: string
     title: string
     description: string | null
     createdAt: Date
     count: PostsCountAggregateOutputType | null
-    avg: PostsAvgAggregateOutputType | null
-    sum: PostsSumAggregateOutputType | null
     min: PostsMinAggregateOutputType | null
     max: PostsMaxAggregateOutputType | null
   }
@@ -1531,32 +1497,20 @@ export namespace Prisma {
 
   export type AggregateProfile = {
     count: ProfileCountAggregateOutputType | null
-    avg: ProfileAvgAggregateOutputType | null
-    sum: ProfileSumAggregateOutputType | null
     min: ProfileMinAggregateOutputType | null
     max: ProfileMaxAggregateOutputType | null
   }
 
-  export type ProfileAvgAggregateOutputType = {
-    id: number | null
-    userId: number | null
-  }
-
-  export type ProfileSumAggregateOutputType = {
-    id: number | null
-    userId: number | null
-  }
-
   export type ProfileMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     description: string | null
-    userId: number | null
+    userId: string | null
   }
 
   export type ProfileMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     description: string | null
-    userId: number | null
+    userId: string | null
   }
 
   export type ProfileCountAggregateOutputType = {
@@ -1566,16 +1520,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type ProfileAvgAggregateInputType = {
-    id?: true
-    userId?: true
-  }
-
-  export type ProfileSumAggregateInputType = {
-    id?: true
-    userId?: true
-  }
 
   export type ProfileMinAggregateInputType = {
     id?: true
@@ -1634,18 +1578,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    avg?: ProfileAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    sum?: ProfileSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     min?: ProfileMinAggregateInputType
@@ -1676,20 +1608,16 @@ export namespace Prisma {
     take?: number
     skip?: number
     count?: ProfileCountAggregateInputType | true
-    avg?: ProfileAvgAggregateInputType
-    sum?: ProfileSumAggregateInputType
     min?: ProfileMinAggregateInputType
     max?: ProfileMaxAggregateInputType
   }
 
 
   export type ProfileGroupByOutputType = {
-    id: number
+    id: string
     description: string
-    userId: number
+    userId: string
     count: ProfileCountAggregateOutputType | null
-    avg: ProfileAvgAggregateOutputType | null
-    sum: ProfileSumAggregateOutputType | null
     min: ProfileMinAggregateOutputType | null
     max: ProfileMaxAggregateOutputType | null
   }
@@ -2355,40 +2283,28 @@ export namespace Prisma {
 
   export type AggregateUsers = {
     count: UsersCountAggregateOutputType | null
-    avg: UsersAvgAggregateOutputType | null
-    sum: UsersSumAggregateOutputType | null
     min: UsersMinAggregateOutputType | null
     max: UsersMaxAggregateOutputType | null
   }
 
-  export type UsersAvgAggregateOutputType = {
-    id: number | null
-    avatarId: number | null
-  }
-
-  export type UsersSumAggregateOutputType = {
-    id: number | null
-    avatarId: number | null
-  }
-
   export type UsersMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     email: string | null
     firstName: string | null
     lastName: string | null
     password: string | null
     role: role | null
-    avatarId: number | null
+    avatarId: string | null
   }
 
   export type UsersMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     email: string | null
     firstName: string | null
     lastName: string | null
     password: string | null
     role: role | null
-    avatarId: number | null
+    avatarId: string | null
   }
 
   export type UsersCountAggregateOutputType = {
@@ -2402,16 +2318,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type UsersAvgAggregateInputType = {
-    id?: true
-    avatarId?: true
-  }
-
-  export type UsersSumAggregateInputType = {
-    id?: true
-    avatarId?: true
-  }
 
   export type UsersMinAggregateInputType = {
     id?: true
@@ -2482,18 +2388,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    avg?: UsersAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    sum?: UsersSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     min?: UsersMinAggregateInputType
@@ -2524,24 +2418,20 @@ export namespace Prisma {
     take?: number
     skip?: number
     count?: UsersCountAggregateInputType | true
-    avg?: UsersAvgAggregateInputType
-    sum?: UsersSumAggregateInputType
     min?: UsersMinAggregateInputType
     max?: UsersMaxAggregateInputType
   }
 
 
   export type UsersGroupByOutputType = {
-    id: number
+    id: string
     email: string
     firstName: string
     lastName: string
     password: string
     role: role
-    avatarId: number | null
+    avatarId: string | null
     count: UsersCountAggregateOutputType | null
-    avg: UsersAvgAggregateOutputType | null
-    sum: UsersSumAggregateOutputType | null
     min: UsersMinAggregateOutputType | null
     max: UsersMaxAggregateOutputType | null
   }
@@ -2560,13 +2450,13 @@ export namespace Prisma {
     lastName?: boolean
     password?: boolean
     role?: boolean
+    avatar?: boolean | userAvatarArgs
     avatarId?: boolean
-    userAvatar?: boolean | userAvatarArgs
     profile?: boolean | profileFindManyArgs
   }
 
   export type usersInclude = {
-    userAvatar?: boolean | userAvatarArgs
+    avatar?: boolean | userAvatarArgs
     profile?: boolean | profileFindManyArgs
   }
 
@@ -2581,7 +2471,7 @@ export namespace Prisma {
     ?'include' extends U
     ? users  & {
     [P in TrueKeys<S['include']>]: 
-          P extends 'userAvatar'
+          P extends 'avatar'
         ? userAvatarGetPayload<S['include'][P]> | null :
         P extends 'profile'
         ? Array < profileGetPayload<S['include'][P]>>  : never
@@ -2590,7 +2480,7 @@ export namespace Prisma {
     ? {
     [P in TrueKeys<S['select']>]: P extends keyof users ?users [P]
   : 
-          P extends 'userAvatar'
+          P extends 'avatar'
         ? userAvatarGetPayload<S['select'][P]> | null :
         P extends 'profile'
         ? Array < profileGetPayload<S['select'][P]>>  : never
@@ -2933,7 +2823,7 @@ export namespace Prisma {
     constructor(_dmmf: runtime.DMMFClass, _fetcher: PrismaClientFetcher, _queryType: 'query' | 'mutation', _rootField: string, _clientMethod: string, _args: any, _dataPath: string[], _errorFormat: ErrorFormat, _measurePerformance?: boolean | undefined, _isList?: boolean);
     readonly [Symbol.toStringTag]: 'PrismaClientPromise';
 
-    userAvatar<T extends userAvatarArgs = {}>(args?: Subset<T, userAvatarArgs>): CheckSelect<T, Prisma__userAvatarClient<userAvatar | null >, Prisma__userAvatarClient<userAvatarGetPayload<T> | null >>;
+    avatar<T extends userAvatarArgs = {}>(args?: Subset<T, userAvatarArgs>): CheckSelect<T, Prisma__userAvatarClient<userAvatar | null >, Prisma__userAvatarClient<userAvatarGetPayload<T> | null >>;
 
     profile<T extends profileFindManyArgs = {}>(args?: Subset<T, profileFindManyArgs>): CheckSelect<T, PrismaPromise<Array<profile>>, PrismaPromise<Array<profileGetPayload<T>>>>;
 
@@ -3219,28 +3109,18 @@ export namespace Prisma {
 
   export type AggregateUserAvatar = {
     count: UserAvatarCountAggregateOutputType | null
-    avg: UserAvatarAvgAggregateOutputType | null
-    sum: UserAvatarSumAggregateOutputType | null
     min: UserAvatarMinAggregateOutputType | null
     max: UserAvatarMaxAggregateOutputType | null
   }
 
-  export type UserAvatarAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type UserAvatarSumAggregateOutputType = {
-    id: number | null
-  }
-
   export type UserAvatarMinAggregateOutputType = {
-    id: number | null
+    id: string | null
     key: string | null
     url: string | null
   }
 
   export type UserAvatarMaxAggregateOutputType = {
-    id: number | null
+    id: string | null
     key: string | null
     url: string | null
   }
@@ -3252,14 +3132,6 @@ export namespace Prisma {
     _all: number
   }
 
-
-  export type UserAvatarAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type UserAvatarSumAggregateInputType = {
-    id?: true
-  }
 
   export type UserAvatarMinAggregateInputType = {
     id?: true
@@ -3318,18 +3190,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    avg?: UserAvatarAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    sum?: UserAvatarSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     min?: UserAvatarMinAggregateInputType
@@ -3360,20 +3220,16 @@ export namespace Prisma {
     take?: number
     skip?: number
     count?: UserAvatarCountAggregateInputType | true
-    avg?: UserAvatarAvgAggregateInputType
-    sum?: UserAvatarSumAggregateInputType
     min?: UserAvatarMinAggregateInputType
     max?: UserAvatarMaxAggregateInputType
   }
 
 
   export type UserAvatarGroupByOutputType = {
-    id: number
+    id: string
     key: string
     url: string
     count: UserAvatarCountAggregateOutputType | null
-    avg: UserAvatarAvgAggregateOutputType | null
-    sum: UserAvatarSumAggregateOutputType | null
     min: UserAvatarMinAggregateOutputType | null
     max: UserAvatarMaxAggregateOutputType | null
   }
@@ -4105,7 +3961,7 @@ export namespace Prisma {
     AND?: Enumerable<postsWhereInput>
     OR?: Enumerable<postsWhereInput>
     NOT?: Enumerable<postsWhereInput>
-    id?: IntFilter | number
+    id?: StringFilter | string
     title?: StringFilter | string
     description?: StringNullableFilter | string | null
     createdAt?: DateTimeFilter | Date | string
@@ -4119,14 +3975,14 @@ export namespace Prisma {
   }
 
   export type postsWhereUniqueInput = {
-    id?: number
+    id?: string
   }
 
   export type postsScalarWhereWithAggregatesInput = {
     AND?: Enumerable<postsScalarWhereWithAggregatesInput>
     OR?: Enumerable<postsScalarWhereWithAggregatesInput>
     NOT?: Enumerable<postsScalarWhereWithAggregatesInput>
-    id?: IntWithAggregatesFilter | number
+    id?: StringWithAggregatesFilter | string
     title?: StringWithAggregatesFilter | string
     description?: StringNullableWithAggregatesFilter | string | null
     createdAt?: DateTimeWithAggregatesFilter | Date | string
@@ -4136,9 +3992,9 @@ export namespace Prisma {
     AND?: Enumerable<profileWhereInput>
     OR?: Enumerable<profileWhereInput>
     NOT?: Enumerable<profileWhereInput>
-    id?: IntFilter | number
+    id?: StringFilter | string
     description?: StringFilter | string
-    userId?: IntFilter | number
+    userId?: StringFilter | string
     users?: XOR<UsersRelationFilter, usersWhereInput>
   }
 
@@ -4149,30 +4005,30 @@ export namespace Prisma {
   }
 
   export type profileWhereUniqueInput = {
-    id?: number
+    id?: string
   }
 
   export type profileScalarWhereWithAggregatesInput = {
     AND?: Enumerable<profileScalarWhereWithAggregatesInput>
     OR?: Enumerable<profileScalarWhereWithAggregatesInput>
     NOT?: Enumerable<profileScalarWhereWithAggregatesInput>
-    id?: IntWithAggregatesFilter | number
+    id?: StringWithAggregatesFilter | string
     description?: StringWithAggregatesFilter | string
-    userId?: IntWithAggregatesFilter | number
+    userId?: StringWithAggregatesFilter | string
   }
 
   export type usersWhereInput = {
     AND?: Enumerable<usersWhereInput>
     OR?: Enumerable<usersWhereInput>
     NOT?: Enumerable<usersWhereInput>
-    id?: IntFilter | number
+    id?: StringFilter | string
     email?: StringFilter | string
     firstName?: StringFilter | string
     lastName?: StringFilter | string
     password?: StringFilter | string
     role?: EnumroleFilter | role
-    avatarId?: IntNullableFilter | number | null
-    userAvatar?: XOR<UserAvatarRelationFilter, userAvatarWhereInput> | null
+    avatar?: XOR<UserAvatarRelationFilter, userAvatarWhereInput> | null
+    avatarId?: StringNullableFilter | string | null
     profile?: ProfileListRelationFilter
   }
 
@@ -4187,7 +4043,7 @@ export namespace Prisma {
   }
 
   export type usersWhereUniqueInput = {
-    id?: number
+    id?: string
     email?: string
   }
 
@@ -4195,20 +4051,20 @@ export namespace Prisma {
     AND?: Enumerable<usersScalarWhereWithAggregatesInput>
     OR?: Enumerable<usersScalarWhereWithAggregatesInput>
     NOT?: Enumerable<usersScalarWhereWithAggregatesInput>
-    id?: IntWithAggregatesFilter | number
+    id?: StringWithAggregatesFilter | string
     email?: StringWithAggregatesFilter | string
     firstName?: StringWithAggregatesFilter | string
     lastName?: StringWithAggregatesFilter | string
     password?: StringWithAggregatesFilter | string
     role?: EnumroleWithAggregatesFilter | role
-    avatarId?: IntNullableWithAggregatesFilter | number | null
+    avatarId?: StringNullableWithAggregatesFilter | string | null
   }
 
   export type userAvatarWhereInput = {
     AND?: Enumerable<userAvatarWhereInput>
     OR?: Enumerable<userAvatarWhereInput>
     NOT?: Enumerable<userAvatarWhereInput>
-    id?: IntFilter | number
+    id?: StringFilter | string
     key?: StringFilter | string
     url?: StringFilter | string
     users?: UsersListRelationFilter
@@ -4221,155 +4077,164 @@ export namespace Prisma {
   }
 
   export type userAvatarWhereUniqueInput = {
-    id?: number
+    id?: string
   }
 
   export type userAvatarScalarWhereWithAggregatesInput = {
     AND?: Enumerable<userAvatarScalarWhereWithAggregatesInput>
     OR?: Enumerable<userAvatarScalarWhereWithAggregatesInput>
     NOT?: Enumerable<userAvatarScalarWhereWithAggregatesInput>
-    id?: IntWithAggregatesFilter | number
+    id?: StringWithAggregatesFilter | string
     key?: StringWithAggregatesFilter | string
     url?: StringWithAggregatesFilter | string
   }
 
   export type postsCreateInput = {
+    id?: string
     title: string
     description?: string | null
     createdAt?: Date | string
   }
 
   export type postsUncheckedCreateInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     createdAt?: Date | string
   }
 
   export type postsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type postsUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type postsCreateManyInput = {
-    id?: number
+    id?: string
     title: string
     description?: string | null
     createdAt?: Date | string
   }
 
   export type postsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type postsUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type profileCreateInput = {
+    id?: string
     description: string
     users: usersCreateNestedOneWithoutProfileInput
   }
 
   export type profileUncheckedCreateInput = {
-    id?: number
+    id?: string
     description: string
-    userId: number
+    userId: string
   }
 
   export type profileUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     users?: usersUpdateOneRequiredWithoutProfileInput
   }
 
   export type profileUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    userId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type profileCreateManyInput = {
-    id?: number
+    id?: string
     description: string
-    userId: number
+    userId: string
   }
 
   export type profileUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type profileUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
-    userId?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
   }
 
   export type usersCreateInput = {
+    id?: string
     email: string
     firstName: string
     lastName: string
     password: string
     role?: role
-    userAvatar?: userAvatarCreateNestedOneWithoutUsersInput
+    avatar?: userAvatarCreateNestedOneWithoutUsersInput
     profile?: profileCreateNestedManyWithoutUsersInput
   }
 
   export type usersUncheckedCreateInput = {
-    id?: number
+    id?: string
     email: string
     firstName: string
     lastName: string
     password: string
     role?: role
-    avatarId?: number | null
+    avatarId?: string | null
     profile?: profileUncheckedCreateNestedManyWithoutUsersInput
   }
 
   export type usersUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumroleFieldUpdateOperationsInput | role
-    userAvatar?: userAvatarUpdateOneWithoutUsersInput
+    avatar?: userAvatarUpdateOneWithoutUsersInput
     profile?: profileUpdateManyWithoutUsersInput
   }
 
   export type usersUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumroleFieldUpdateOperationsInput | role
-    avatarId?: NullableIntFieldUpdateOperationsInput | number | null
+    avatarId?: NullableStringFieldUpdateOperationsInput | string | null
     profile?: profileUncheckedUpdateManyWithoutUsersInput
   }
 
   export type usersCreateManyInput = {
-    id?: number
+    id?: string
     email: string
     firstName: string
     lastName: string
     password: string
     role?: role
-    avatarId?: number | null
+    avatarId?: string | null
   }
 
   export type usersUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
@@ -4378,67 +4243,59 @@ export namespace Prisma {
   }
 
   export type usersUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumroleFieldUpdateOperationsInput | role
-    avatarId?: NullableIntFieldUpdateOperationsInput | number | null
+    avatarId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type userAvatarCreateInput = {
+    id?: string
     key: string
     url: string
-    users?: usersCreateNestedManyWithoutUserAvatarInput
+    users?: usersCreateNestedManyWithoutAvatarInput
   }
 
   export type userAvatarUncheckedCreateInput = {
-    id?: number
+    id?: string
     key: string
     url: string
-    users?: usersUncheckedCreateNestedManyWithoutUserAvatarInput
+    users?: usersUncheckedCreateNestedManyWithoutAvatarInput
   }
 
   export type userAvatarUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    users?: usersUpdateManyWithoutUserAvatarInput
+    users?: usersUpdateManyWithoutAvatarInput
   }
 
   export type userAvatarUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    users?: usersUncheckedUpdateManyWithoutUserAvatarInput
+    users?: usersUncheckedUpdateManyWithoutAvatarInput
   }
 
   export type userAvatarCreateManyInput = {
-    id?: number
+    id?: string
     key: string
     url: string
   }
 
   export type userAvatarUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
   }
 
   export type userAvatarUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type IntFilter = {
-    equals?: number
-    in?: Enumerable<number>
-    notIn?: Enumerable<number>
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntFilter | number
   }
 
   export type StringFilter = {
@@ -4480,22 +4337,6 @@ export namespace Prisma {
     gt?: Date | string
     gte?: Date | string
     not?: NestedDateTimeFilter | Date | string
-  }
-
-  export type IntWithAggregatesFilter = {
-    equals?: number
-    in?: Enumerable<number>
-    notIn?: Enumerable<number>
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntWithAggregatesFilter | number
-    count?: NestedIntFilter
-    avg?: NestedFloatFilter
-    sum?: NestedIntFilter
-    min?: NestedIntFilter
-    max?: NestedIntFilter
   }
 
   export type StringWithAggregatesFilter = {
@@ -4560,17 +4401,6 @@ export namespace Prisma {
     not?: NestedEnumroleFilter | role
   }
 
-  export type IntNullableFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntNullableFilter | number | null
-  }
-
   export type UserAvatarRelationFilter = {
     is?: userAvatarWhereInput | null
     isNot?: userAvatarWhereInput | null
@@ -4592,22 +4422,6 @@ export namespace Prisma {
     max?: NestedEnumroleFilter
   }
 
-  export type IntNullableWithAggregatesFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntNullableWithAggregatesFilter | number | null
-    count?: NestedIntNullableFilter
-    avg?: NestedFloatNullableFilter
-    sum?: NestedIntNullableFilter
-    min?: NestedIntNullableFilter
-    max?: NestedIntNullableFilter
-  }
-
   export type UsersListRelationFilter = {
     every?: usersWhereInput
     some?: usersWhereInput
@@ -4624,14 +4438,6 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type usersCreateNestedOneWithoutProfileInput = {
@@ -4696,14 +4502,6 @@ export namespace Prisma {
     deleteMany?: Enumerable<profileScalarWhereInput>
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type profileUncheckedUpdateManyWithoutUsersInput = {
     create?: XOR<Enumerable<profileCreateWithoutUsersInput>, Enumerable<profileUncheckedCreateWithoutUsersInput>>
     connectOrCreate?: Enumerable<profileCreateOrConnectWithoutUsersInput>
@@ -4718,57 +4516,46 @@ export namespace Prisma {
     deleteMany?: Enumerable<profileScalarWhereInput>
   }
 
-  export type usersCreateNestedManyWithoutUserAvatarInput = {
-    create?: XOR<Enumerable<usersCreateWithoutUserAvatarInput>, Enumerable<usersUncheckedCreateWithoutUserAvatarInput>>
-    connectOrCreate?: Enumerable<usersCreateOrConnectWithoutUserAvatarInput>
-    createMany?: usersCreateManyUserAvatarInputEnvelope
+  export type usersCreateNestedManyWithoutAvatarInput = {
+    create?: XOR<Enumerable<usersCreateWithoutAvatarInput>, Enumerable<usersUncheckedCreateWithoutAvatarInput>>
+    connectOrCreate?: Enumerable<usersCreateOrConnectWithoutAvatarInput>
+    createMany?: usersCreateManyAvatarInputEnvelope
     connect?: Enumerable<usersWhereUniqueInput>
   }
 
-  export type usersUncheckedCreateNestedManyWithoutUserAvatarInput = {
-    create?: XOR<Enumerable<usersCreateWithoutUserAvatarInput>, Enumerable<usersUncheckedCreateWithoutUserAvatarInput>>
-    connectOrCreate?: Enumerable<usersCreateOrConnectWithoutUserAvatarInput>
-    createMany?: usersCreateManyUserAvatarInputEnvelope
+  export type usersUncheckedCreateNestedManyWithoutAvatarInput = {
+    create?: XOR<Enumerable<usersCreateWithoutAvatarInput>, Enumerable<usersUncheckedCreateWithoutAvatarInput>>
+    connectOrCreate?: Enumerable<usersCreateOrConnectWithoutAvatarInput>
+    createMany?: usersCreateManyAvatarInputEnvelope
     connect?: Enumerable<usersWhereUniqueInput>
   }
 
-  export type usersUpdateManyWithoutUserAvatarInput = {
-    create?: XOR<Enumerable<usersCreateWithoutUserAvatarInput>, Enumerable<usersUncheckedCreateWithoutUserAvatarInput>>
-    connectOrCreate?: Enumerable<usersCreateOrConnectWithoutUserAvatarInput>
-    upsert?: Enumerable<usersUpsertWithWhereUniqueWithoutUserAvatarInput>
-    createMany?: usersCreateManyUserAvatarInputEnvelope
-    connect?: Enumerable<usersWhereUniqueInput>
-    set?: Enumerable<usersWhereUniqueInput>
-    disconnect?: Enumerable<usersWhereUniqueInput>
-    delete?: Enumerable<usersWhereUniqueInput>
-    update?: Enumerable<usersUpdateWithWhereUniqueWithoutUserAvatarInput>
-    updateMany?: Enumerable<usersUpdateManyWithWhereWithoutUserAvatarInput>
-    deleteMany?: Enumerable<usersScalarWhereInput>
-  }
-
-  export type usersUncheckedUpdateManyWithoutUserAvatarInput = {
-    create?: XOR<Enumerable<usersCreateWithoutUserAvatarInput>, Enumerable<usersUncheckedCreateWithoutUserAvatarInput>>
-    connectOrCreate?: Enumerable<usersCreateOrConnectWithoutUserAvatarInput>
-    upsert?: Enumerable<usersUpsertWithWhereUniqueWithoutUserAvatarInput>
-    createMany?: usersCreateManyUserAvatarInputEnvelope
+  export type usersUpdateManyWithoutAvatarInput = {
+    create?: XOR<Enumerable<usersCreateWithoutAvatarInput>, Enumerable<usersUncheckedCreateWithoutAvatarInput>>
+    connectOrCreate?: Enumerable<usersCreateOrConnectWithoutAvatarInput>
+    upsert?: Enumerable<usersUpsertWithWhereUniqueWithoutAvatarInput>
+    createMany?: usersCreateManyAvatarInputEnvelope
     connect?: Enumerable<usersWhereUniqueInput>
     set?: Enumerable<usersWhereUniqueInput>
     disconnect?: Enumerable<usersWhereUniqueInput>
     delete?: Enumerable<usersWhereUniqueInput>
-    update?: Enumerable<usersUpdateWithWhereUniqueWithoutUserAvatarInput>
-    updateMany?: Enumerable<usersUpdateManyWithWhereWithoutUserAvatarInput>
+    update?: Enumerable<usersUpdateWithWhereUniqueWithoutAvatarInput>
+    updateMany?: Enumerable<usersUpdateManyWithWhereWithoutAvatarInput>
     deleteMany?: Enumerable<usersScalarWhereInput>
   }
 
-  export type NestedIntFilter = {
-    equals?: number
-    in?: Enumerable<number>
-    notIn?: Enumerable<number>
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntFilter | number
+  export type usersUncheckedUpdateManyWithoutAvatarInput = {
+    create?: XOR<Enumerable<usersCreateWithoutAvatarInput>, Enumerable<usersUncheckedCreateWithoutAvatarInput>>
+    connectOrCreate?: Enumerable<usersCreateOrConnectWithoutAvatarInput>
+    upsert?: Enumerable<usersUpsertWithWhereUniqueWithoutAvatarInput>
+    createMany?: usersCreateManyAvatarInputEnvelope
+    connect?: Enumerable<usersWhereUniqueInput>
+    set?: Enumerable<usersWhereUniqueInput>
+    disconnect?: Enumerable<usersWhereUniqueInput>
+    delete?: Enumerable<usersWhereUniqueInput>
+    update?: Enumerable<usersUpdateWithWhereUniqueWithoutAvatarInput>
+    updateMany?: Enumerable<usersUpdateManyWithWhereWithoutAvatarInput>
+    deleteMany?: Enumerable<usersScalarWhereInput>
   }
 
   export type NestedStringFilter = {
@@ -4810,33 +4597,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter | Date | string
   }
 
-  export type NestedIntWithAggregatesFilter = {
-    equals?: number
-    in?: Enumerable<number>
-    notIn?: Enumerable<number>
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntWithAggregatesFilter | number
-    count?: NestedIntFilter
-    avg?: NestedFloatFilter
-    sum?: NestedIntFilter
-    min?: NestedIntFilter
-    max?: NestedIntFilter
-  }
-
-  export type NestedFloatFilter = {
-    equals?: number
-    in?: Enumerable<number>
-    notIn?: Enumerable<number>
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedFloatFilter | number
-  }
-
   export type NestedStringWithAggregatesFilter = {
     equals?: string
     in?: Enumerable<string>
@@ -4852,6 +4612,17 @@ export namespace Prisma {
     count?: NestedIntFilter
     min?: NestedStringFilter
     max?: NestedStringFilter
+  }
+
+  export type NestedIntFilter = {
+    equals?: number
+    in?: Enumerable<number>
+    notIn?: Enumerable<number>
+    lt?: number
+    lte?: number
+    gt?: number
+    gte?: number
+    not?: NestedIntFilter | number
   }
 
   export type NestedStringNullableWithAggregatesFilter = {
@@ -4913,50 +4684,24 @@ export namespace Prisma {
     max?: NestedEnumroleFilter
   }
 
-  export type NestedIntNullableWithAggregatesFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedIntNullableWithAggregatesFilter | number | null
-    count?: NestedIntNullableFilter
-    avg?: NestedFloatNullableFilter
-    sum?: NestedIntNullableFilter
-    min?: NestedIntNullableFilter
-    max?: NestedIntNullableFilter
-  }
-
-  export type NestedFloatNullableFilter = {
-    equals?: number | null
-    in?: Enumerable<number> | null
-    notIn?: Enumerable<number> | null
-    lt?: number
-    lte?: number
-    gt?: number
-    gte?: number
-    not?: NestedFloatNullableFilter | number | null
-  }
-
   export type usersCreateWithoutProfileInput = {
+    id?: string
     email: string
     firstName: string
     lastName: string
     password: string
     role?: role
-    userAvatar?: userAvatarCreateNestedOneWithoutUsersInput
+    avatar?: userAvatarCreateNestedOneWithoutUsersInput
   }
 
   export type usersUncheckedCreateWithoutProfileInput = {
-    id?: number
+    id?: string
     email: string
     firstName: string
     lastName: string
     password: string
     role?: role
-    avatarId?: number | null
+    avatarId?: string | null
   }
 
   export type usersCreateOrConnectWithoutProfileInput = {
@@ -4970,31 +4715,33 @@ export namespace Prisma {
   }
 
   export type usersUpdateWithoutProfileInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumroleFieldUpdateOperationsInput | role
-    userAvatar?: userAvatarUpdateOneWithoutUsersInput
+    avatar?: userAvatarUpdateOneWithoutUsersInput
   }
 
   export type usersUncheckedUpdateWithoutProfileInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     role?: EnumroleFieldUpdateOperationsInput | role
-    avatarId?: NullableIntFieldUpdateOperationsInput | number | null
+    avatarId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type userAvatarCreateWithoutUsersInput = {
+    id?: string
     key: string
     url: string
   }
 
   export type userAvatarUncheckedCreateWithoutUsersInput = {
-    id?: number
+    id?: string
     key: string
     url: string
   }
@@ -5005,11 +4752,12 @@ export namespace Prisma {
   }
 
   export type profileCreateWithoutUsersInput = {
+    id?: string
     description: string
   }
 
   export type profileUncheckedCreateWithoutUsersInput = {
-    id?: number
+    id?: string
     description: string
   }
 
@@ -5029,12 +4777,13 @@ export namespace Prisma {
   }
 
   export type userAvatarUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
   }
 
   export type userAvatarUncheckedUpdateWithoutUsersInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     key?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
   }
@@ -5059,12 +4808,13 @@ export namespace Prisma {
     AND?: Enumerable<profileScalarWhereInput>
     OR?: Enumerable<profileScalarWhereInput>
     NOT?: Enumerable<profileScalarWhereInput>
-    id?: IntFilter | number
+    id?: StringFilter | string
     description?: StringFilter | string
-    userId?: IntFilter | number
+    userId?: StringFilter | string
   }
 
-  export type usersCreateWithoutUserAvatarInput = {
+  export type usersCreateWithoutAvatarInput = {
+    id?: string
     email: string
     firstName: string
     lastName: string
@@ -5073,8 +4823,8 @@ export namespace Prisma {
     profile?: profileCreateNestedManyWithoutUsersInput
   }
 
-  export type usersUncheckedCreateWithoutUserAvatarInput = {
-    id?: number
+  export type usersUncheckedCreateWithoutAvatarInput = {
+    id?: string
     email: string
     firstName: string
     lastName: string
@@ -5083,28 +4833,28 @@ export namespace Prisma {
     profile?: profileUncheckedCreateNestedManyWithoutUsersInput
   }
 
-  export type usersCreateOrConnectWithoutUserAvatarInput = {
+  export type usersCreateOrConnectWithoutAvatarInput = {
     where: usersWhereUniqueInput
-    create: XOR<usersCreateWithoutUserAvatarInput, usersUncheckedCreateWithoutUserAvatarInput>
+    create: XOR<usersCreateWithoutAvatarInput, usersUncheckedCreateWithoutAvatarInput>
   }
 
-  export type usersCreateManyUserAvatarInputEnvelope = {
-    data: Enumerable<usersCreateManyUserAvatarInput>
+  export type usersCreateManyAvatarInputEnvelope = {
+    data: Enumerable<usersCreateManyAvatarInput>
     skipDuplicates?: boolean
   }
 
-  export type usersUpsertWithWhereUniqueWithoutUserAvatarInput = {
+  export type usersUpsertWithWhereUniqueWithoutAvatarInput = {
     where: usersWhereUniqueInput
-    update: XOR<usersUpdateWithoutUserAvatarInput, usersUncheckedUpdateWithoutUserAvatarInput>
-    create: XOR<usersCreateWithoutUserAvatarInput, usersUncheckedCreateWithoutUserAvatarInput>
+    update: XOR<usersUpdateWithoutAvatarInput, usersUncheckedUpdateWithoutAvatarInput>
+    create: XOR<usersCreateWithoutAvatarInput, usersUncheckedCreateWithoutAvatarInput>
   }
 
-  export type usersUpdateWithWhereUniqueWithoutUserAvatarInput = {
+  export type usersUpdateWithWhereUniqueWithoutAvatarInput = {
     where: usersWhereUniqueInput
-    data: XOR<usersUpdateWithoutUserAvatarInput, usersUncheckedUpdateWithoutUserAvatarInput>
+    data: XOR<usersUpdateWithoutAvatarInput, usersUncheckedUpdateWithoutAvatarInput>
   }
 
-  export type usersUpdateManyWithWhereWithoutUserAvatarInput = {
+  export type usersUpdateManyWithWhereWithoutAvatarInput = {
     where: usersScalarWhereInput
     data: XOR<usersUpdateManyMutationInput, usersUncheckedUpdateManyWithoutUsersInput>
   }
@@ -5113,36 +4863,37 @@ export namespace Prisma {
     AND?: Enumerable<usersScalarWhereInput>
     OR?: Enumerable<usersScalarWhereInput>
     NOT?: Enumerable<usersScalarWhereInput>
-    id?: IntFilter | number
+    id?: StringFilter | string
     email?: StringFilter | string
     firstName?: StringFilter | string
     lastName?: StringFilter | string
     password?: StringFilter | string
     role?: EnumroleFilter | role
-    avatarId?: IntNullableFilter | number | null
+    avatarId?: StringNullableFilter | string | null
   }
 
   export type profileCreateManyUsersInput = {
-    id?: number
+    id?: string
     description: string
   }
 
   export type profileUpdateWithoutUsersInput = {
+    id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type profileUncheckedUpdateWithoutUsersInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
   export type profileUncheckedUpdateManyWithoutProfileInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
   }
 
-  export type usersCreateManyUserAvatarInput = {
-    id?: number
+  export type usersCreateManyAvatarInput = {
+    id?: string
     email: string
     firstName: string
     lastName: string
@@ -5150,7 +4901,8 @@ export namespace Prisma {
     role?: role
   }
 
-  export type usersUpdateWithoutUserAvatarInput = {
+  export type usersUpdateWithoutAvatarInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
@@ -5159,8 +4911,8 @@ export namespace Prisma {
     profile?: profileUpdateManyWithoutUsersInput
   }
 
-  export type usersUncheckedUpdateWithoutUserAvatarInput = {
-    id?: IntFieldUpdateOperationsInput | number
+  export type usersUncheckedUpdateWithoutAvatarInput = {
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string
@@ -5170,7 +4922,7 @@ export namespace Prisma {
   }
 
   export type usersUncheckedUpdateManyWithoutUsersInput = {
-    id?: IntFieldUpdateOperationsInput | number
+    id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     firstName?: StringFieldUpdateOperationsInput | string
     lastName?: StringFieldUpdateOperationsInput | string

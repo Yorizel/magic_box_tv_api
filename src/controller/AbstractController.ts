@@ -1,6 +1,7 @@
 import express, { Response, NextFunction } from 'express';
 import { Prisma, PrismaClient } from '../../prisma/client';
 import Bucket from '../services/bucket';
+
 interface Avatar {
   id: number;
   key: string;
@@ -11,16 +12,14 @@ interface User {
   firstName: string;
   lastName: string;
   role: string;
-  avatar?: Avatar;
+  userAvatar?: Avatar | null;
   profile: Array<any>;
 }
-interface genericRequest {
+export interface genericRequest extends express.Request {
   user: User;
   files: Array<any>;
   userId: string | object;
 }
-
-export type Req = express.Request & genericRequest;
 
 export class AbstractController {
   public prisma: PrismaClient<
@@ -44,17 +43,33 @@ export class AbstractController {
     this.bucket = bucketService;
   }
 
-  async index(req: Req, res: Response, next: NextFunction): Promise<any> {}
+  async index(
+    req: genericRequest,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> {}
 
-  async find(req: Req, res: Response, next: NextFunction): Promise<any> {}
+  async find(
+    req: genericRequest,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> {}
 
-  async create(req: Req, res: Response, next: NextFunction): Promise<any> {}
+  async create(
+    req: genericRequest,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> {}
 
   async delete(
-    req: Req,
+    req: genericRequest,
     res: express.Response,
     next: NextFunction
   ): Promise<any> {}
 
-  async update(req: Req, res: Response, next: NextFunction): Promise<any> {}
+  async update(
+    req: genericRequest,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> {}
 }

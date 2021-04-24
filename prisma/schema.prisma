@@ -9,33 +9,33 @@ datasource db {
 }
 
 model posts {
-  id          Int      @id @default(autoincrement())
+  id          String @id @default(uuid())
   title       String
   description String?
   createdAt   DateTime @default(now())
 }
 
 model profile {
-  id          Int    @id @default(autoincrement())
+  id          String @id @default(uuid())
   description String
-  userId      Int
+  userId      String
   users       users  @relation(fields: [userId], references: [id])
 }
 
 model users {
-  id         Int         @id @default(autoincrement())
+  id         String @id @default(uuid())
   email      String      @unique
   firstName String
   lastName  String
   password   String
   role       role        @default(USER)
-  avatarId   Int?
-  userAvatar userAvatar? @relation(fields: [avatarId], references: [id])
+  avatar userAvatar? @relation(fields: [avatarId], references:[id])
+  avatarId   String?
   profile    profile[]
 }
 
 model userAvatar {
-  id    Int     @id @default(autoincrement())
+  id    String @id @default(uuid())
   key   String
   url   String
   users users[]
