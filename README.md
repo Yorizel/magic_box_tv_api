@@ -1,0 +1,1 @@
+# Api refeita em typescript
