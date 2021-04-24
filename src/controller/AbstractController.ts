@@ -8,7 +8,7 @@ interface Avatar {
   url: string;
 }
 interface User {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   role: string;
@@ -16,6 +16,7 @@ interface User {
   profile: Array<any>;
 }
 export interface genericRequest extends express.Request {
+  req: import('C:/Users/manoe/Documents/Projetos/MagibBox-Typescript/back-end/prisma/client/index').users;
   user: User;
   files: Array<any>;
   userId: string | object;

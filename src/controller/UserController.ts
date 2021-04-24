@@ -35,7 +35,7 @@ class UserController extends AbstractController {
         },
         include: {
           profile: true,
-          userAvatar: true
+          avatar: true
         }
       });
       if (user != null) {
@@ -52,7 +52,7 @@ class UserController extends AbstractController {
     const { files } = req;
     const { email, password, role } = req.body;
     const { id } = req.params;
-    const Id = Number(id);
+
     try {
       const image = await this.bucket.createImage({
         file: files[0]
@@ -61,7 +61,7 @@ class UserController extends AbstractController {
         data: { key: image.key, url: image.Location }
       });
       const user = await this.prisma.users.update({
-        where: { id: Id },
+        where: { id },
         data: {
           email,
           password,
