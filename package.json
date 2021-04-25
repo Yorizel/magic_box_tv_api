@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "nodemon src/server.ts",
-    "start": "nodemon src/server.ts"
+    "start": "node build/index.js",
+    "build": "tsc"
   },
   "dependencies": {
     "@prisma/client": "^2.21.2",
