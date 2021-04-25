@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { genericRequest } from '../controller/AbstractController';
+import { genericRequest } from 'src/controller/AbstractController';
 import { NextFunction, Response } from 'express';
-import { ErrorHandler } from '../utils/errorHandler';
+import { ErrorHandler } from 'src/utils/errorHandler';
 
 dotenv.config();
 class Authentication {

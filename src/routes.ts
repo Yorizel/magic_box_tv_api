@@ -1,7 +1,7 @@
 import express, { NextFunction, Response } from 'express';
-import userRoutes from './routes/user/login';
-import Authentication from './middlewares/authentication';
-import globalCatch from './utils/globalCatcher';
+import userRoutes from 'src/routes/user/login';
+import Authentication from 'src/middlewares/authentication';
+import globalCatch from 'src/utils/globalCatcher';
 import { genericRequest } from './controller/AbstractController';
 
 const router = express.Router();

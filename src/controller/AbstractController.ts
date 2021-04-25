@@ -1,6 +1,6 @@
 import express, { Response, NextFunction } from 'express';
-import { Prisma, PrismaClient } from '../../prisma/client';
-import Bucket from '../services/bucket';
+import { Prisma, PrismaClient } from 'prisma';
+import Bucket from 'src/services/bucket';
 
 interface Avatar {
   id: number;

@@ -6,6 +6,11 @@
     "outDir": "./build",
     "esModuleInterop": true,
     "strict": true,
+    "baseUrl": "./",
+    "paths": {
+      "prisma": ["./prisma/client"],
+      "src": ["./src/"]
+    },
     "lib": [
       "es6",
       "dom"

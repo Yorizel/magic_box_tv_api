@@ -1,5 +1,5 @@
 import aws, { S3 } from 'aws-sdk';
-import { ErrorHandler } from '../utils/errorHandler';
+import { ErrorHandler } from 'src/utils/errorHandler';
 import dotenv from 'dotenv';
 dotenv.config();
 
