@@ -5,6 +5,9 @@
   "main": "server.js",
   "author": "yorizel",
   "license": "MIT",
+  "engines": {
+    "node": "15.8.0"
+  },
   "scripts": {
     "dev": "nodemon src/server.ts",
     "start": "nodemon build/src/server.js",
