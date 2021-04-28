@@ -9,9 +9,10 @@
     "node": "15.8.0"
   },
   "scripts": {
-    "dev": "nodemon src/server.ts",
+    "dev": "ts-node -r tsconfig-paths/register src/server.ts",
+    "prestart": "prisma generate",
     "lint": "tsc --watch",
-    "start": "node build/index.js"
+    "start": "node -r ts-node/register/transpile-only -r tsconfig-paths/register build/src/server.js"
   },
   "dependencies": {
     "@prisma/client": "^2.21.2",
@@ -41,6 +42,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-promise": "^4.3.1",
     "prettier": "^2.2.1",
-    "prisma": "^2.21.2"
+    "prisma": "^2.21.2",
+    "tsconfig-paths": "^3.9.0"
   }
 }

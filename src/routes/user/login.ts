@@ -1,9 +1,9 @@
 import express, { NextFunction, Response } from 'express';
-import UserController from 'src/controller/UserController';
-import globalCatch from 'src/utils/globalCatcher';
-import Token from 'src/services/token';
+import UserController from '@src/controller/UserController';
+import globalCatch from '@src/utils/globalCatcher';
+import Token from '@src/services/token';
 import multer from 'multer';
-import { genericRequest } from 'src/controller/AbstractController';
+import { genericRequest } from '@src/controller/AbstractController';
 
 const upload = multer();
 

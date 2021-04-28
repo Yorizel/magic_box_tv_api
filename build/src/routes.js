@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const login_1 = __importDefault(require("src/routes/user/login"));
-const authentication_1 = __importDefault(require("src/middlewares/authentication"));
-const globalCatcher_1 = __importDefault(require("src/utils/globalCatcher"));
+const login_1 = __importDefault(require("@src/routes/user/login"));
+const authentication_1 = __importDefault(require("@src/middlewares/authentication"));
+const globalCatcher_1 = __importDefault(require("@src/utils/globalCatcher"));
 const router = express_1.default.Router();
 const verify = globalCatcher_1.default((req, res, next) => __awaiter(void 0, void 0, void 0, function* () { return yield authentication_1.default.verify(req, res, next); }));
 router.use(login_1.default).use(verify);

@@ -5,11 +5,13 @@
     "rootDir": "./",
     "outDir": "./build",
     "esModuleInterop": true,
+    "moduleResolution": "Node",
     "strict": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "prisma": ["./prisma/client"],
-      "src": ["./src/"]
+      "@prisma/*": ["./prisma/client/*"],
+      "@src/*": ["./src/*"],
+      "@controller/*": ["./src/controller/*"]
     },
     "lib": [
       "es6",

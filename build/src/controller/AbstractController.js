@@ -13,10 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AbstractController = void 0;
-const prisma_1 = require("prisma");
-const bucket_1 = __importDefault(require("src/services/bucket"));
+const index_1 = require("@prisma/index");
+const bucket_1 = __importDefault(require("@src/services/bucket"));
 class AbstractController {
-    constructor(prismaService = new prisma_1.PrismaClient(), bucketService = bucket_1.default) {
+    constructor(prismaService = new index_1.PrismaClient(), bucketService = bucket_1.default) {
         this.prisma = prismaService;
         this.bucket = bucketService;
     }

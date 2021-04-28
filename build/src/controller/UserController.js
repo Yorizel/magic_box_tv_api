@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const AbstractController_1 = require("./AbstractController");
-const errorHandler_1 = require("src/utils/errorHandler");
+const errorHandler_1 = require("@src/utils/errorHandler");
 class UserController extends AbstractController_1.AbstractController {
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {

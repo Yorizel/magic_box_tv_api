@@ -1,6 +1,6 @@
 import { AbstractController, genericRequest } from './AbstractController';
 import e from 'express';
-import { ErrorHandler } from 'src/utils/errorHandler';
+import { ErrorHandler } from '@src/utils/errorHandler';
 
 class UserController extends AbstractController {
   async create(req: genericRequest, res: e.Response, next: e.NextFunction) {

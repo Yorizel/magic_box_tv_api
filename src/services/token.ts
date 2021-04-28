@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import { ErrorHandler } from 'src/utils/errorHandler';
+import { ErrorHandler } from '@src/utils/errorHandler';
 import dotenv from 'dotenv';
-import { genericRequest } from 'src/controller/AbstractController';
+import { genericRequest } from '@src/controller/AbstractController';
 import { Response } from 'express';
 
 dotenv.config();

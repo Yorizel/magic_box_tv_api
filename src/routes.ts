@@ -1,8 +1,8 @@
 import express, { NextFunction, Response } from 'express';
-import userRoutes from 'src/routes/user/login';
-import Authentication from 'src/middlewares/authentication';
-import globalCatch from 'src/utils/globalCatcher';
-import { genericRequest } from './controller/AbstractController';
+import userRoutes from '@src/routes/user/login';
+import Authentication from '@src/middlewares/authentication';
+import globalCatch from '@src/utils/globalCatcher';
+import { genericRequest } from '@controller/AbstractController';
 
 const router = express.Router();
 const verify = globalCatch(
